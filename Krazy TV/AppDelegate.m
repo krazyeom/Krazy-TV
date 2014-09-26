@@ -16,6 +16,8 @@
 @property (strong) AVPlayer *player;
 @property (strong) IBOutlet AVPlayerView *avPlayerView;
 @property (strong) NSTimer *timer;
+@property (strong) IBOutlet NSTableView *tableView;
+@property (strong) NSDictionary *programList;
 @end
 
 @implementation AppDelegate
@@ -23,10 +25,9 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   
   NSString *path = [[NSBundle mainBundle] pathForResource:@"program_list" ofType:@"plist"];
-  NSMutableDictionary *rootDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+  self.programList = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
 
-
-  NSString *urlString = [[rootDictionary allValues] firstObject];
+  NSString *urlString = [[_programList allValues] firstObject];
   
   NSURL *url = [NSURL URLWithString:urlString];
   AVAsset *asset = [AVAsset assetWithURL:url];
@@ -40,6 +41,11 @@
      _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(playAVPlayer) userInfo:nil repeats:YES];
       NSLog(@"Not ready");
   }
+  
+  self.tableView.dataSource = self;
+  self.tableView.delegate = self;
+  
+  [_tableView setDoubleAction:@selector(selectedChannel:)];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -51,6 +57,26 @@
     [_player play];
     [_timer invalidate];
   }
+}
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView{
+  return [_programList count];
+}
+
+- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+  NSString *title = [[_programList allKeys] objectAtIndex:row];
+  return title;
+}
+
+-(void)selectedChannel:(id)sender{
+  NSInteger selected = [(NSTableView *)sender selectedRow];
+  NSString *urlString = [[_programList allValues] objectAtIndex:selected];
+  NSURL *url = [NSURL URLWithString:urlString];
+  AVAsset *asset = [AVAsset assetWithURL:url];
+  AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
+  self.player = [AVPlayer playerWithPlayerItem:item];
+  _avPlayerView.player = _player;
+  _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(playAVPlayer) userInfo:nil repeats:YES];
 }
 
 @end

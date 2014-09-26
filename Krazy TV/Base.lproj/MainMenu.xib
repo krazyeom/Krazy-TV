@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.AVKitIBPlugin" version="6245"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6245"/>
@@ -15,6 +15,7 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="avPlayerView" destination="G9H-H1-EaJ" id="8ia-bw-itI"/>
+                <outlet property="tableView" destination="Kg9-GX-7wu" id="qbZ-be-DWF"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -671,28 +672,72 @@
         <window title="Krazy TV" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="contentRect" x="335" y="390" width="627" height="360"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="627" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <avPlayerView translatesAutoresizingMaskIntoConstraints="NO" id="G9H-H1-EaJ">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                    <avPlayerView ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G9H-H1-EaJ">
+                        <rect key="frame" x="130" y="0.0" width="627" height="360"/>
                     </avPlayerView>
+                    <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2k-w8-DTb">
+                        <rect key="frame" x="0.0" y="0.0" width="130" height="361"/>
+                        <clipView key="contentView" ambiguous="YES" misplaced="YES" id="zbq-eh-nhy">
+                            <rect key="frame" x="1" y="0.0" width="238" height="134"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <tableView verticalHuggingPriority="750" tag="1" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="9sx-0c-bg0" id="Kg9-GX-7wu">
+                                    <rect key="frame" x="0.0" y="0.0" width="238" height="134"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <size key="intercellSpacing" width="3" height="2"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                    <tableColumns>
+                                        <tableColumn editable="NO" width="125" minWidth="40" maxWidth="1000" id="Hd8-9D-RPN">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Program Title">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" allowsUndo="NO" alignment="left" tag="2" title="Text Cell" id="qKc-05-RhV">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        </tableColumn>
+                                    </tableColumns>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="LUT-4A-E7K">
+                            <rect key="frame" x="1" y="119" width="223" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="gEU-HH-P9f">
+                            <rect key="frame" x="224" y="17" width="15" height="102"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <tableHeaderView key="headerView" id="9sx-0c-bg0">
+                            <rect key="frame" x="0.0" y="0.0" width="238" height="17"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </tableHeaderView>
+                    </scrollView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="G9H-H1-EaJ" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="7vy-oE-nZv"/>
-                    <constraint firstAttribute="bottom" secondItem="G9H-H1-EaJ" secondAttribute="bottom" id="8yx-hF-rs0"/>
-                    <constraint firstItem="G9H-H1-EaJ" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="OYS-g3-aq3"/>
-                    <constraint firstItem="G9H-H1-EaJ" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="TPC-OP-95M"/>
-                    <constraint firstAttribute="trailing" secondItem="G9H-H1-EaJ" secondAttribute="trailing" id="Woz-XQ-H6z"/>
-                    <constraint firstAttribute="bottom" secondItem="G9H-H1-EaJ" secondAttribute="bottom" id="ZSw-aZ-6x9"/>
-                    <constraint firstAttribute="trailing" secondItem="G9H-H1-EaJ" secondAttribute="trailing" id="cZW-m5-beW"/>
-                    <constraint firstItem="G9H-H1-EaJ" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="kgR-lg-LbJ"/>
+                    <constraint firstAttribute="bottom" secondItem="G9H-H1-EaJ" secondAttribute="bottom" id="Eqj-fJ-ec7"/>
+                    <constraint firstItem="u2k-w8-DTb" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="Sx4-Dz-awT"/>
+                    <constraint firstItem="G9H-H1-EaJ" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="ber-zj-aPm"/>
+                    <constraint firstAttribute="bottom" secondItem="u2k-w8-DTb" secondAttribute="bottom" id="jKs-a3-hKt"/>
+                    <constraint firstItem="G9H-H1-EaJ" firstAttribute="leading" secondItem="u2k-w8-DTb" secondAttribute="trailing" id="vbu-6D-Nbl"/>
+                    <constraint firstAttribute="trailing" secondItem="G9H-H1-EaJ" secondAttribute="trailing" id="x3j-IC-w1P"/>
+                    <constraint firstItem="u2k-w8-DTb" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="yDM-n6-aEn"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="284" y="208"/>
+            <point key="canvasLocation" x="89.5" y="321"/>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="UPx-FR-mMI"/>
     </objects>
 </document>
