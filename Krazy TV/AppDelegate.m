@@ -141,4 +141,14 @@
   }
 }
 
+- (IBAction)toggleTopWindow:(id)sender {
+  if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DefaultAlwaysOnTop"] == YES) {
+    [[self window] setLevel:NSNormalWindowLevel];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"DefaultAlwaysOnTop"];
+  } else {
+    [[self window] setLevel:NSFloatingWindowLevel];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"DefaultAlwaysOnTop"];
+  }
+}
+
 @end
