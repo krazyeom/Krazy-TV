@@ -30,6 +30,7 @@
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
   self.window.delegate = self;
+  self.avPlayerView.delegate = self;
   
   [_tableView setDoubleAction:@selector(selectedChannel:)];
   
@@ -145,6 +146,14 @@
     [[self window] setLevel:NSNormalWindowLevel];
   } else {
     [[self window] setLevel:NSFloatingWindowLevel];
+  }
+}
+
+-(void)playPauseVideo{
+  if (_player.rate == 1.0) {
+    [_player pause];
+  } else {
+    [_player play];
   }
 }
 

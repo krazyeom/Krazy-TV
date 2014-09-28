@@ -8,6 +8,17 @@
 
 #import <AVKit/AVKit.h>
 
+@protocol PlayerDelegate;
+
 @interface PlayerView : AVPlayerView
+
+@property (strong) id<PlayerDelegate> delegate;
+
+@end
+
+@protocol PlayerDelegate <NSObject>
+
+@optional
+- (void)playPauseVideo;
 
 @end

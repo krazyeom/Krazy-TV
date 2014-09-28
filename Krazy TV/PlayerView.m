@@ -19,12 +19,19 @@
 
 -(void)keyDown:(NSEvent*)event {
   switch( [event keyCode] ) {
+    case 49:
+      [self playPauseVideo];
+      break;
     case 124:
     case 123:
       break;
     default:
       break;
   }
+}
+
+- (void)playPauseVideo{
+  [_delegate playPauseVideo];
 }
 
 @end
