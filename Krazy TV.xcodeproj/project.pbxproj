@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE34779F19D527B4000B3CC7 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE34779E19D527B4000B3CC7 /* AVKit.framework */; };
 		CE3477A119D52840000B3CC7 /* program_list.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE3477A019D52840000B3CC7 /* program_list.plist */; };
+		CE3D194019D82D01006FFC71 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D193F19D82D01006FFC71 /* PlayerView.m */; };
 		CEC68FC119D51E9800430160 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC68FC019D51E9800430160 /* main.m */; };
 		CEC68FC419D51E9800430160 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC68FC319D51E9800430160 /* AppDelegate.m */; };
 		CEC68FC619D51E9800430160 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC68FC519D51E9800430160 /* Images.xcassets */; };
@@ -29,6 +30,8 @@
 /* Begin PBXFileReference section */
 		CE34779E19D527B4000B3CC7 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		CE3477A019D52840000B3CC7 /* program_list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = program_list.plist; path = ../program_list.plist; sourceTree = "<group>"; };
+		CE3D193E19D82D01006FFC71 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
+		CE3D193F19D82D01006FFC71 /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
 		CEA22D0E19D54604005ACF88 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
 		CEC68FBB19D51E9800430160 /* Krazy TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Krazy TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC68FBF19D51E9800430160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 			children = (
 				CEC68FC219D51E9800430160 /* AppDelegate.h */,
 				CEC68FC319D51E9800430160 /* AppDelegate.m */,
+				CE3D193E19D82D01006FFC71 /* PlayerView.h */,
+				CE3D193F19D82D01006FFC71 /* PlayerView.m */,
 				CEC68FC519D51E9800430160 /* Images.xcassets */,
 				CEC68FC719D51E9800430160 /* MainMenu.xib */,
 				CEC68FBE19D51E9800430160 /* Supporting Files */,
@@ -221,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEC68FC419D51E9800430160 /* AppDelegate.m in Sources */,
+				CE3D194019D82D01006FFC71 /* PlayerView.m in Sources */,
 				CEC68FC119D51E9800430160 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

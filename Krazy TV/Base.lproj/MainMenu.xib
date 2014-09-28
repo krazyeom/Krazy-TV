@@ -15,7 +15,8 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="avPlayerView" destination="G9H-H1-EaJ" id="8ia-bw-itI"/>
-                <outlet property="tableView" destination="Kg9-GX-7wu" id="qbZ-be-DWF"/>
+                <outlet property="item" destination="H8h-7b-M4v" id="LfZ-9j-ae7"/>
+                <outlet property="tableView" destination="Kg9-GX-7wu" id="Ldy-Vm-561"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -611,20 +612,20 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="View" id="H8h-7b-M4v">
+                <menuItem title="Audio" id="H8h-7b-M4v" userLabel="Audio">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="View" id="HyV-fh-RgO">
+                    <menu key="submenu" title="Audio" id="HyV-fh-RgO" userLabel="Audio">
                         <items>
-                            <menuItem title="Show Toolbar" keyEquivalent="t" id="snW-S8-Cw5">
-                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                <connections>
-                                    <action selector="toggleToolbarShown:" target="-1" id="BXY-wc-z0C"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Customize Toolbar…" id="1UK-8n-QPP">
+                            <menuItem title="Volume up" keyEquivalent="" id="snW-S8-Cw5" userLabel="Volume up">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="runToolbarCustomizationPalette:" target="-1" id="pQI-g3-MTW"/>
+                                    <action selector="volumeUp:" target="Voe-Tx-rLC" id="Iip-tg-s6E"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Volume down" keyEquivalent="" id="1UK-8n-QPP" userLabel="Volume down">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="volumeDown:" target="Voe-Tx-rLC" id="Grk-KT-TOF"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -634,9 +635,20 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
                         <items>
+                            <menuItem title="Enter Full Screen" keyEquivalent="f" id="f4v-29-3dJ">
+                                <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                <connections>
+                                    <action selector="toggleFullScreen:" target="-1" id="koq-AU-RK2"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Minimize" keyEquivalent="m" id="OY7-WF-poV">
                                 <connections>
                                     <action selector="performMiniaturize:" target="-1" id="VwT-WD-YPe"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Volume up" keyEquivalent="1" id="6JB-Bm-rfq" userLabel="Volume up">
+                                <connections>
+                                    <action selector="toggleProgramList:" target="Voe-Tx-rLC" id="Eca-vM-efJ"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Zoom" id="R4o-n2-Eq4">
@@ -671,6 +683,7 @@
         </menu>
         <window title="Krazy TV" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="627" height="360"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -678,11 +691,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="627" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <avPlayerView ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G9H-H1-EaJ">
-                        <rect key="frame" x="130" y="0.0" width="627" height="360"/>
+                    <avPlayerView translatesAutoresizingMaskIntoConstraints="NO" id="G9H-H1-EaJ" customClass="PlayerView">
+                        <rect key="frame" x="0.0" y="0.0" width="627" height="360"/>
                     </avPlayerView>
                     <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2k-w8-DTb">
-                        <rect key="frame" x="0.0" y="0.0" width="130" height="361"/>
+                        <rect key="frame" x="0.0" y="0.0" width="130" height="360"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" id="zbq-eh-nhy">
                             <rect key="frame" x="1" y="0.0" width="238" height="134"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -727,16 +740,15 @@
                     </scrollView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="G9H-H1-EaJ" secondAttribute="bottom" id="Eqj-fJ-ec7"/>
-                    <constraint firstItem="u2k-w8-DTb" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="Sx4-Dz-awT"/>
-                    <constraint firstItem="G9H-H1-EaJ" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="ber-zj-aPm"/>
-                    <constraint firstAttribute="bottom" secondItem="u2k-w8-DTb" secondAttribute="bottom" id="jKs-a3-hKt"/>
-                    <constraint firstItem="G9H-H1-EaJ" firstAttribute="leading" secondItem="u2k-w8-DTb" secondAttribute="trailing" id="vbu-6D-Nbl"/>
-                    <constraint firstAttribute="trailing" secondItem="G9H-H1-EaJ" secondAttribute="trailing" id="x3j-IC-w1P"/>
-                    <constraint firstItem="u2k-w8-DTb" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="yDM-n6-aEn"/>
+                    <constraint firstAttribute="bottom" secondItem="u2k-w8-DTb" secondAttribute="bottom" id="3al-b4-Dh6"/>
+                    <constraint firstAttribute="bottom" secondItem="G9H-H1-EaJ" secondAttribute="bottom" id="6Sh-Og-ECA"/>
+                    <constraint firstItem="u2k-w8-DTb" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="Q48-IX-kcy"/>
+                    <constraint firstAttribute="trailing" secondItem="G9H-H1-EaJ" secondAttribute="trailing" id="aKJ-ew-Yzx"/>
+                    <constraint firstItem="G9H-H1-EaJ" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="g2b-36-yiC"/>
+                    <constraint firstItem="G9H-H1-EaJ" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="mkp-aL-LKH"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="89.5" y="321"/>
+            <point key="canvasLocation" x="-221.5" y="133"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="UPx-FR-mMI"/>
     </objects>

@@ -9,14 +9,17 @@
 #import "AppDelegate.h"
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "PlayerView.h"
+
 
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
 @property (strong) AVPlayer *player;
-@property (strong) IBOutlet AVPlayerView *avPlayerView;
+@property (strong) IBOutlet PlayerView *avPlayerView;
 @property (strong) IBOutlet NSTableView *tableView;
 @property (strong) NSDictionary *programList;
+@property (strong) IBOutlet NSMenuItem *item;
 
 @end
 
@@ -26,6 +29,7 @@
   
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
+  self.window.delegate = self;
   
   [_tableView setDoubleAction:@selector(selectedChannel:)];
   
@@ -34,7 +38,9 @@
   
   NSString *channel = [self loadLastViewedChannel];
   [self playVideoWithURL:channel];
-  
+  unichar arrowKey = NSLeftArrowFunctionKey;
+  [_item setKeyEquivalent:[NSString stringWithCharacters:&arrowKey length:1]];
+  _player.volume = [self loadVolume];
 }
 
 - (NSString *)loadLastViewedChannel {
@@ -46,7 +52,18 @@
 }
 
 - (void)saveCurrnentChannel:(NSString *)channel {
-  [[NSUserDefaults standardUserDefaults] setObject:channel forKey:@"channel"];
+  [[NSUserDefaults standardUserDefaults] setObject:channel forKey:@"volume"];
+}
+
+- (float)loadVolume {
+  float volume = [[NSUserDefaults standardUserDefaults] floatForKey:@"volume"];
+  NSLog(@"======================lv");
+  return volume;
+}
+
+- (void)saveVolume:(float)volume {
+  [[NSUserDefaults standardUserDefaults] setFloat:volume forKey:@"volume"];
+    NSLog(@"sv");
 }
 
 
@@ -88,6 +105,40 @@
   NSString *urlString = [[_programList allValues] objectAtIndex:selected];
   [self playVideoWithURL:urlString];
   [self saveCurrnentChannel:urlString];
+}
+
+- (void)windowWillEnterFullScreen:(NSNotification *)notification {
+  [_tableView.superview.superview setHidden:YES];
+}
+
+- (void)windowDidExitFullScreen:(NSNotification *)notification {
+  [_tableView.superview.superview setHidden:NO];
+}
+
+- (IBAction)volumeUp:(id)sender {
+  float volume = _player.volume + 0.1f;
+  if (volume > 1.0f){
+    volume = 1.0f;
+  }
+  _player.volume = volume;
+  [self saveVolume:volume];
+}
+
+- (IBAction)volumeDown:(id)sender {
+  float volume = _player.volume - 0.1f;
+  if (volume < 0){
+    volume = 0.0f;
+  }
+  _player.volume = volume;
+  [self saveVolume:volume];
+}
+
+- (IBAction)toggleProgramList:(id)sender {
+  if ([_tableView.superview.superview isHidden]) {
+    [_tableView.superview.superview setHidden:NO];
+  } else {
+    [_tableView.superview.superview setHidden:YES];
+  }
 }
 
 @end
