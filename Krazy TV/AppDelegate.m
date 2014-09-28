@@ -57,13 +57,11 @@
 
 - (float)loadVolume {
   float volume = [[NSUserDefaults standardUserDefaults] floatForKey:@"volume"];
-  NSLog(@"======================lv");
   return volume;
 }
 
 - (void)saveVolume:(float)volume {
   [[NSUserDefaults standardUserDefaults] setFloat:volume forKey:@"volume"];
-    NSLog(@"sv");
 }
 
 
@@ -73,6 +71,7 @@
   AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:asset];
   self.player = [AVPlayer playerWithPlayerItem:item];
   _avPlayerView.player = _player;
+  _player.volume = [self loadVolume];
   
   [_player addObserver:self forKeyPath:@"status" options:0 context:nil];
 }
