@@ -27,8 +27,6 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   
-  self.tableView.dataSource = self;
-  self.tableView.delegate = self;
   self.window.delegate = self;
   self.avPlayerView.delegate = self;
   
@@ -37,6 +35,9 @@
   NSString *path = [[NSBundle mainBundle] pathForResource:@"program_list" ofType:@"plist"];
   self.programList = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
   
+  self.tableView.dataSource = self;
+  self.tableView.delegate = self;
+
   NSString *channel = [self loadLastViewedChannel];
   [self playVideoWithURL:channel];
   unichar arrowKey = NSLeftArrowFunctionKey;
