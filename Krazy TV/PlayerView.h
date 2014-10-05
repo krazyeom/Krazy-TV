@@ -13,6 +13,7 @@
 @interface PlayerView : AVPlayerView
 
 @property (strong) id<PlayerDelegate> delegate;
+@property NSPoint initialLocation;
 
 @end
 

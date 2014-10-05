@@ -110,7 +110,7 @@
 }
 
 - (void)windowDidExitFullScreen:(NSNotification *)notification {
-  [_tableView.superview.superview setHidden:NO];
+//  [_tableView.superview.superview setHidden:NO];
 }
 
 - (IBAction)volumeUp:(id)sender {
