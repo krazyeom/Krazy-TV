@@ -41,6 +41,8 @@
   unichar arrowKey = NSLeftArrowFunctionKey;
   [_item setKeyEquivalent:[NSString stringWithCharacters:&arrowKey length:1]];
   _player.volume = [self loadVolume];
+  
+  [self.avPlayerView volumeLabelInit];
 }
 
 - (NSString *)loadLastViewedChannel {
@@ -120,6 +122,8 @@
   }
   _player.volume = volume;
   [self saveVolume:volume];
+  [_avPlayerView updateVolumeString:[NSString stringWithFormat:@"%.1f", volume]];
+  [_avPlayerView showVolumeLabel];
 }
 
 - (IBAction)volumeDown:(id)sender {
@@ -129,6 +133,8 @@
   }
   _player.volume = volume;
   [self saveVolume:volume];
+  [_avPlayerView updateVolumeString:[NSString stringWithFormat:@"%.1f", volume]];
+  [_avPlayerView showVolumeLabel];
 }
 
 - (IBAction)toggleProgramList:(id)sender {
@@ -166,11 +172,9 @@
   NSInteger serverInteger = RAND_FROM_TO(12, 15);
   NSString *temp1 = [dict objectForKey:@"url"];
   NSString *temp2 = [@(serverInteger) stringValue];
-  NSString *temp3 = @"/live/1";
-  NSString *temp4 = [[array objectAtIndex:index] objectAtIndex:0];
-  NSString *temp5 = [[array objectAtIndex:index] objectAtIndex:2];
-  NSString *temp6 = @".m3u8?sid=";
-  return [NSString stringWithFormat:@"%@%@%@%@%@%@", temp1, temp2, temp3, temp4, temp5, temp6];
+  NSString *temp3 = [[array objectAtIndex:index] objectAtIndex:0];
+  NSString *temp4 = [[array objectAtIndex:index] objectAtIndex:2];
+  return [NSString stringWithFormat:@"%@%@/live/1%@%@.m3u8?sid=", temp1, temp2, temp3, temp4];
 }
                      
 - (NSArray *)programList{

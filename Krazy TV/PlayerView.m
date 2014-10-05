@@ -10,40 +10,47 @@
 
 @implementation PlayerView
 
-- (instancetype)init{
-  if ((self = [super init])) {
-    NSTextField *textField;
-    
-    textField = [[NSTextField alloc] initWithFrame:NSMakeRect(10, 10, 200, 17)];
-    [textField setStringValue:@"My Label"];
-    [textField setTextColor:[NSColor redColor]];
-    [textField setBezeled:NO];
-    [textField setDrawsBackground:NO];
-    [textField setEditable:NO];
-    [textField setSelectable:NO];
-    
-    NSLog(@"asdfasfasfasfas");
-    
-    //  [self addSubview:textField];
-    [self addSubview:textField positioned:NSWindowAbove relativeTo:nil];
-    
-    
-    [self.layer addSublayer:[textField layer]];
-    
-  }
-  
-  return self;
+- (void)volumeLabelInit{
+  _volumeLabel = [[NSTextField alloc] initWithFrame:CGRectMake(10, 10, 100, 20)];
+  _volumeLabel.stringValue = @"";
+  [_volumeLabel setBezeled:NO];
+  [_volumeLabel setDrawsBackground:NO];
+  [_volumeLabel setEditable:NO];
+  [_volumeLabel setSelectable:NO];
+  [self addSubview:_volumeLabel positioned:NSWindowAbove relativeTo:nil];
 }
 
+- (void)updateVolumeString:(NSString *)volume {
+  [_volumeLabel setStringValue:volume];
+}
 
+- (void)hideVolumeLabel {
+  [_volumeLabel setHidden:YES];
+}
+
+- (void)showVolumeLabel {
+  [_volumeLabel setHidden:NO];
+}
 
 - (void)drawRect:(NSRect)dirtyRect {
   [super drawRect:dirtyRect];
 }
 
+- (void)keyUp:(NSEvent *)theEvent {
+  switch( [theEvent keyCode] ) {
+    case 125:
+    case 126:
+      [_timer invalidate];
+      _timer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(hideVolumeLabel) userInfo:nil repeats:NO];
 
--(void)keyDown:(NSEvent*)event {
-  switch( [event keyCode] ) {
+      break;
+    default:
+      break;
+  }
+}
+
+- (void)keyDown:(NSEvent*)theEvent {
+  switch( [theEvent keyCode] ) {
     case 49:
       [self playPauseVideo];
       break;

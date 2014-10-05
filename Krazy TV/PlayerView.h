@@ -14,6 +14,13 @@
 
 @property (strong) id<PlayerDelegate> delegate;
 @property NSPoint initialLocation;
+@property (strong) NSTextField *volumeLabel;
+@property NSTimer *timer;
+
+- (void)volumeLabelInit;
+- (void)updateVolumeString:(NSString *)volume;
+- (void)hideVolumeLabel;
+- (void)showVolumeLabel;
 
 @end
 
@@ -21,5 +28,4 @@
 
 @optional
 - (void)playPauseVideo;
-
 @end

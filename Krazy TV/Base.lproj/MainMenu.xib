@@ -145,15 +145,17 @@
         <window title="Krazy TV" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="630" height="352"/>
+            <rect key="contentRect" x="500" y="319" width="618" height="350"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="630" height="352"/>
+                <rect key="frame" x="0.0" y="0.0" width="618" height="350"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <avPlayerView translatesAutoresizingMaskIntoConstraints="NO" id="G9H-H1-EaJ" customClass="PlayerView">
+                        <rect key="frame" x="0.0" y="0.0" width="618" height="350"/>
+                    </avPlayerView>
                     <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2k-w8-DTb">
-                        <rect key="frame" x="0.0" y="0.0" width="130" height="352"/>
+                        <rect key="frame" x="0.0" y="-1" width="130" height="352"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" id="zbq-eh-nhy">
                             <rect key="frame" x="1" y="0.0" width="238" height="134"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,9 +198,6 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
-                    <avPlayerView translatesAutoresizingMaskIntoConstraints="NO" id="G9H-H1-EaJ" customClass="PlayerView">
-                        <rect key="frame" x="0.0" y="0.0" width="630" height="352"/>
-                    </avPlayerView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="G9H-H1-EaJ" secondAttribute="bottom" id="6Sh-Og-ECA"/>
