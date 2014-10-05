@@ -11,6 +11,7 @@
 		CE3477A119D52840000B3CC7 /* program_list.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE3477A019D52840000B3CC7 /* program_list.plist */; };
 		CE3D194019D82D01006FFC71 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D193F19D82D01006FFC71 /* PlayerView.m */; };
 		CE3D194219D84653006FFC71 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CE3D194119D84653006FFC71 /* Credits.rtf */; };
+		CE653DF419E1274E00D0B055 /* icons.icns in Resources */ = {isa = PBXBuildFile; fileRef = CE653DF319E1274E00D0B055 /* icons.icns */; };
 		CEC68FC119D51E9800430160 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC68FC019D51E9800430160 /* main.m */; };
 		CEC68FC419D51E9800430160 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC68FC319D51E9800430160 /* AppDelegate.m */; };
 		CEC68FC619D51E9800430160 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC68FC519D51E9800430160 /* Images.xcassets */; };
@@ -34,6 +35,7 @@
 		CE3D193E19D82D01006FFC71 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
 		CE3D193F19D82D01006FFC71 /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
 		CE3D194119D84653006FFC71 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		CE653DF319E1274E00D0B055 /* icons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icons.icns; sourceTree = "<group>"; };
 		CEA22D0E19D54604005ACF88 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
 		CEC68FBB19D51E9800430160 /* Krazy TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Krazy TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC68FBF19D51E9800430160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		CEC68FBE19D51E9800430160 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE653DF319E1274E00D0B055 /* icons.icns */,
 				CE3D194119D84653006FFC71 /* Credits.rtf */,
 				CEA22D0E19D54604005ACF88 /* PrefixHeader.pch */,
 				CE3477A019D52840000B3CC7 /* program_list.plist */,
@@ -212,6 +215,7 @@
 				CEC68FC619D51E9800430160 /* Images.xcassets in Resources */,
 				CEC68FC919D51E9800430160 /* MainMenu.xib in Resources */,
 				CE3D194219D84653006FFC71 /* Credits.rtf in Resources */,
+				CE653DF419E1274E00D0B055 /* icons.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

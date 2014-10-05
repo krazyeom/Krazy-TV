@@ -13,7 +13,6 @@
 
 #define RAND_FROM_TO(min, max) (min + arc4random_uniform(max - min + 1))
 
-
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
@@ -96,8 +95,7 @@
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-  NSString *title = [self channelTitleWithIndex:row];
-  return title;
+  return [self channelTitleWithIndex:row];
 }
 
 -(void)selectedChannel:(id)sender{
@@ -109,10 +107,14 @@
 
 - (void)windowWillEnterFullScreen:(NSNotification *)notification {
   [_tableView.superview.superview setHidden:YES];
+  [[self window] setLevel:NSNormalWindowLevel];
 }
 
 - (void)windowDidExitFullScreen:(NSNotification *)notification {
-//  [_tableView.superview.superview setHidden:NO];
+  NSInteger level = [[NSUserDefaults standardUserDefaults] integerForKey:@"top"];
+  if (level) {
+    [[self window] setLevel:NSFloatingWindowLevel];
+  }
 }
 
 - (IBAction)volumeUp:(id)sender {
@@ -146,10 +148,14 @@
 }
 
 - (IBAction)toggleTopWindow:(id)sender {
+  NSLog(@"%ld", [[self window] level]);
   if ([[self window] level]) {
     [[self window] setLevel:NSNormalWindowLevel];
+    [[NSUserDefaults standardUserDefaults] setInteger:NSNormalWindowLevel forKey:@"top"];
   } else {
     [[self window] setLevel:NSFloatingWindowLevel];
+    [[NSUserDefaults standardUserDefaults] setInteger:NSFloatingWindowLevel forKey:@"top"];
+
   }
 }
 

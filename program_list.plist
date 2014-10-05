@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>tvN</key>
-	<string>주소값은 알아서 .. </string>
+	<key>url</key>
+	<string>서버 주소는 알아서 ㅠㅠ </string>
 </dict>
 </plist>
