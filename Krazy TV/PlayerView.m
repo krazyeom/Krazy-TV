@@ -11,13 +11,18 @@
 @implementation PlayerView
 
 - (void)volumeLabelInit{
-  _volumeLabel = [[NSTextField alloc] initWithFrame:CGRectMake(10, 10, 100, 20)];
-  _volumeLabel.stringValue = @"";
+  _volumeLabel = [[NSTextField alloc] initWithFrame:CGRectMake(10, 10, 50, 34)];
   [_volumeLabel setBezeled:NO];
-  [_volumeLabel setDrawsBackground:NO];
+//  [_volumeLabel setDrawsBackground:NO];
   [_volumeLabel setEditable:NO];
   [_volumeLabel setSelectable:NO];
+  NSFont *font = [NSFont systemFontOfSize:30];
+  [_volumeLabel setFont:font];
+  [_volumeLabel setTextColor:[NSColor whiteColor]];
+  [_volumeLabel setAlignment:NSCenterTextAlignment];
+  [_volumeLabel setBackgroundColor:[NSColor colorWithCalibratedRed:0.0f green:0.0f blue:0.0f alpha:0.5f]];
   [self addSubview:_volumeLabel positioned:NSWindowAbove relativeTo:nil];
+  [_volumeLabel setHidden:YES];
 }
 
 - (void)updateVolumeString:(NSString *)volume {

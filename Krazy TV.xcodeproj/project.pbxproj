@@ -8,15 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		CE34779F19D527B4000B3CC7 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE34779E19D527B4000B3CC7 /* AVKit.framework */; };
-		CE3477A119D52840000B3CC7 /* program_list.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE3477A019D52840000B3CC7 /* program_list.plist */; };
 		CE3D194019D82D01006FFC71 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3D193F19D82D01006FFC71 /* PlayerView.m */; };
 		CE3D194219D84653006FFC71 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CE3D194119D84653006FFC71 /* Credits.rtf */; };
 		CE653DF419E1274E00D0B055 /* icons.icns in Resources */ = {isa = PBXBuildFile; fileRef = CE653DF319E1274E00D0B055 /* icons.icns */; };
+		CE6648F519E7F5D90008816F /* ktv.realm in Resources */ = {isa = PBXBuildFile; fileRef = CE6648F419E7F5D90008816F /* ktv.realm */; };
+		CE6648FE19E7F6160008816F /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6648FB19E7F6160008816F /* Server.m */; };
+		CE6648FF19E7F6160008816F /* Channel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6648FD19E7F6160008816F /* Channel.m */; };
+		CE66491119E7FA470008816F /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CE66490D19E7F9360008816F /* libc++.dylib */; };
 		CEC68FC119D51E9800430160 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC68FC019D51E9800430160 /* main.m */; };
 		CEC68FC419D51E9800430160 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC68FC319D51E9800430160 /* AppDelegate.m */; };
 		CEC68FC619D51E9800430160 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEC68FC519D51E9800430160 /* Images.xcassets */; };
 		CEC68FC919D51E9800430160 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC68FC719D51E9800430160 /* MainMenu.xib */; };
 		CEC68FD519D51E9800430160 /* Krazy_TVTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC68FD419D51E9800430160 /* Krazy_TVTests.m */; };
+		DD7B36A99495E8D003F0169F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 641FD0BACC0DB6B49E748846 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,12 +34,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44622E891F5765FC28C2B9A7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		641FD0BACC0DB6B49E748846 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		71EF0DB6E6C43CCD77C8581E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CE34779E19D527B4000B3CC7 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
-		CE3477A019D52840000B3CC7 /* program_list.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = program_list.plist; path = ../program_list.plist; sourceTree = "<group>"; };
 		CE3D193E19D82D01006FFC71 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
 		CE3D193F19D82D01006FFC71 /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
 		CE3D194119D84653006FFC71 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		CE653DF319E1274E00D0B055 /* icons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icons.icns; sourceTree = "<group>"; };
+		CE6648F419E7F5D90008816F /* ktv.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = ktv.realm; sourceTree = "<group>"; };
+		CE6648FA19E7F6160008816F /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		CE6648FB19E7F6160008816F /* Server.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
+		CE6648FC19E7F6160008816F /* Channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
+		CE6648FD19E7F6160008816F /* Channel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Channel.m; sourceTree = "<group>"; };
+		CE66490D19E7F9360008816F /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		CE66490F19E7F9460008816F /* libc++.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.1.dylib"; path = "usr/lib/libc++.1.dylib"; sourceTree = SDKROOT; };
 		CEA22D0E19D54604005ACF88 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
 		CEC68FBB19D51E9800430160 /* Krazy TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Krazy TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC68FBF19D51E9800430160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,7 +67,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE66491119E7FA470008816F /* libc++.dylib in Frameworks */,
 				CE34779F19D527B4000B3CC7 /* AVKit.framework in Frameworks */,
+				DD7B36A99495E8D003F0169F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,13 +83,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0271E5EA2DA67355762E0D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				44622E891F5765FC28C2B9A7 /* Pods.debug.xcconfig */,
+				71EF0DB6E6C43CCD77C8581E /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BE3DDD4EA33ECCC5F3F56E7A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE66490F19E7F9460008816F /* libc++.1.dylib */,
+				CE66490D19E7F9360008816F /* libc++.dylib */,
+				641FD0BACC0DB6B49E748846 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CEC68FB219D51E9800430160 = {
 			isa = PBXGroup;
 			children = (
-				CE34779E19D527B4000B3CC7 /* AVKit.framework */,
 				CEC68FBD19D51E9800430160 /* Krazy TV */,
 				CEC68FD119D51E9800430160 /* Krazy TVTests */,
 				CEC68FBC19D51E9800430160 /* Products */,
+				A0271E5EA2DA67355762E0D0 /* Pods */,
+				BE3DDD4EA33ECCC5F3F56E7A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +131,10 @@
 				CE3D193F19D82D01006FFC71 /* PlayerView.m */,
 				CEC68FC519D51E9800430160 /* Images.xcassets */,
 				CEC68FC719D51E9800430160 /* MainMenu.xib */,
+				CE6648FA19E7F6160008816F /* Server.h */,
+				CE6648FB19E7F6160008816F /* Server.m */,
+				CE6648FC19E7F6160008816F /* Channel.h */,
+				CE6648FD19E7F6160008816F /* Channel.m */,
 				CEC68FBE19D51E9800430160 /* Supporting Files */,
 			);
 			path = "Krazy TV";
@@ -104,10 +143,11 @@
 		CEC68FBE19D51E9800430160 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE34779E19D527B4000B3CC7 /* AVKit.framework */,
+				CE6648F419E7F5D90008816F /* ktv.realm */,
 				CE653DF319E1274E00D0B055 /* icons.icns */,
 				CE3D194119D84653006FFC71 /* Credits.rtf */,
 				CEA22D0E19D54604005ACF88 /* PrefixHeader.pch */,
-				CE3477A019D52840000B3CC7 /* program_list.plist */,
 				CEC68FBF19D51E9800430160 /* Info.plist */,
 				CEC68FC019D51E9800430160 /* main.m */,
 			);
@@ -138,9 +178,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEC68FD819D51E9800430160 /* Build configuration list for PBXNativeTarget "Krazy TV" */;
 			buildPhases = (
+				CA4E0751EF738B3152243A58 /* Check Pods Manifest.lock */,
 				CEC68FB719D51E9800430160 /* Sources */,
 				CEC68FB819D51E9800430160 /* Frameworks */,
 				CEC68FB919D51E9800430160 /* Resources */,
+				063A75A547D0D0629F426139 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -211,9 +253,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE3477A119D52840000B3CC7 /* program_list.plist in Resources */,
 				CEC68FC619D51E9800430160 /* Images.xcassets in Resources */,
 				CEC68FC919D51E9800430160 /* MainMenu.xib in Resources */,
+				CE6648F519E7F5D90008816F /* ktv.realm in Resources */,
 				CE3D194219D84653006FFC71 /* Credits.rtf in Resources */,
 				CE653DF419E1274E00D0B055 /* icons.icns in Resources */,
 			);
@@ -228,6 +270,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		063A75A547D0D0629F426139 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA4E0751EF738B3152243A58 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CEC68FB719D51E9800430160 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -235,6 +310,8 @@
 			files = (
 				CEC68FC419D51E9800430160 /* AppDelegate.m in Sources */,
 				CE3D194019D82D01006FFC71 /* PlayerView.m in Sources */,
+				CE6648FE19E7F6160008816F /* Server.m in Sources */,
+				CE6648FF19E7F6160008816F /* Channel.m in Sources */,
 				CEC68FC119D51E9800430160 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,24 +424,48 @@
 		};
 		CEC68FD919D51E9800430160 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44622E891F5765FC28C2B9A7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Krazy",
+					TV,
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = "Krazy TV/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Krazy",
+					TV,
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		CEC68FDA19D51E9800430160 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71EF0DB6E6C43CCD77C8581E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Krazy",
+					TV,
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = "Krazy TV/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Krazy",
+					TV,
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
